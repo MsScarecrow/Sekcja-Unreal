@@ -47,7 +47,10 @@ protected:
 
 	/** Mouse Look Input Action */
 	UPROPERTY(EditAnywhere, Category="Input")
-	UInputAction* MouseLookAction;
+	UInputAction* MouseLookAction; 
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* CrouchAction;
 
 public:
 
@@ -84,6 +87,8 @@ public:
 	/** Handles jump pressed inputs from either controls or UI interfaces */
 	UFUNCTION(BlueprintCallable, Category="Input")
 	virtual void DoJumpEnd();
+	UFUNCTION(BlueprintCallable, Category="Input")
+	virtual void DoCrouch();
 
 public:
 

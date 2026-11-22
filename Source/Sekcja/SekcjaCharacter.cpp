@@ -65,6 +65,8 @@ void ASekcjaCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ASekcjaCharacter::Look);
+
+		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Triggered, this, &ASekcjaCharacter::DoCrouch);
 	}
 	else
 	{
@@ -130,4 +132,16 @@ void ASekcjaCharacter::DoJumpEnd()
 {
 	// signal the character to stop jumping
 	StopJumping();
+}
+
+void ASekcjaCharacter::DoCrouch()
+{
+	if (GetCharacterMovement()->IsCrouching())
+	{
+		UnCrouch();
+	}
+	else
+	{
+		Crouch();
+	}
 }
